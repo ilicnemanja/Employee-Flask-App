@@ -1,3 +1,47 @@
+/* LOGIN */
+
+.conteiner-login {
+    margin-top: 20rem;
+}
+
 .login-h1 {
-    font-size: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3.6rem;
+    margin-top: 2rem;
+}
+
+.form-login {
+    margin: 5rem;
+}
+
+.form-control-login label {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.form-control-login input {
+    font-size: 1.8rem;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 0.6rem;
+}
+
+.btn-login {
+    display: block;
+    margin: 0 auto;
+    background-color: #2bc987;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #29b97d;
+}
+
+.error-msg-login {
+    margin-top: 2rem;
 }
