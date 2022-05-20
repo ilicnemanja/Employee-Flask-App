@@ -32,7 +32,8 @@ class User:
     def hash_password(password):
         """Hash a password for storing."""
         salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
-        pwdHash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'), salt, 100000)
+        pwdHash = hashlib.pbkdf2_hmac(
+            'sha512', password.encode('utf-8'), salt, 100000)
         pwdHash = binascii.hexlify(pwdHash)
         return (salt + pwdHash).decode('ascii')
 
@@ -41,18 +42,7 @@ class User:
         """Verify a stored password against one provided by user"""
         salt = stored_password[:64]
         stored_password = stored_password[64:]
-        pwdHash = hashlib.pbkdf2_hmac('sha512', provided_password.encode('utf-8'), salt.encode('ascii'), 100000)
+        pwdHash = hashlib.pbkdf2_hmac('sha512', provided_password.encode(
+            'utf-8'), salt.encode('ascii'), 100000)
         pwdHash = binascii.hexlify(pwdHash).decode('ascii')
         return pwdHash == stored_password
-
-
-# user1 = User("johndoe", "1234")
-# user1.username = 'admin'
-# user1.password = 'admin'
-# password_hash = user1.hash_password(user1.password)
-# pass_verify = user1.verify_password(password_hash, user1.username)
-#
-# if pass_verify:
-#     print("Password is same!")
-# else:
-#     print("Password did not match!")

@@ -16,7 +16,3 @@ class Employee:
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name} is started working {self.date_started}'
-
-
-# employee1 = Employee('Nemanja', 'Ilic', 'ilicnemanja.it@gmail.com', 'Python Developer', 'ilicnemanja.linkedIn', 1000)
-# print(employee1)

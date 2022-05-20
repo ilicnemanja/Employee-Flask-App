@@ -33,6 +33,7 @@
 .btn-login {
     display: block;
     margin: 0 auto;
+    border: 2px solid #2bc987;
     background-color: #2bc987;
     cursor: pointer;
     color: #fff;
@@ -44,4 +45,140 @@
 
 .error-msg-login {
     margin-top: 2rem;
+}
+
+/* DASHBOARD */
+
+.employee-div {
+    display: flex;
+    column-gap: 5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.employee-img-div {
+    width: 10%;
+}
+
+.employee-img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.employee-content {
+    padding-top: 1rem;
+    width: 19%;
+}
+
+.employee-content-h2 {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+}
+
+.employee-content-h2:hover {
+    color: #333333b9;
+}
+
+.employee-role {
+    margin-top: 0.8rem;
+    color: #b4b4b4;
+    font-size: 1.4rem;
+}
+
+.social-media {
+    display: flex;
+    column-gap: 0.8rem;
+}
+
+.logo-a {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.logo {
+    font-size: 2.2rem;
+}
+
+.linked-in-logo, .linked-in-logo:link, .linked-in-logo:visited {
+    color: #0077b5;
+    background-color: #fff;
+}
+
+.linked-in-logo:active, .linked-in-logo:hover {
+    color: #016ca5;
+}
+
+.email-logo, .email-logo:link, .email-logo:visited {
+    color: #c71610;
+}
+
+
+.button-delete-div {
+    align-self: center;
+    cursor: pointer;
+    margin-left: 60%;
+}
+
+.btn-delete {
+    border: 1px solid #eeeeee;
+    background-color: #fff;
+    color: #ff0000;
+}
+
+.btn-delete:hover {
+    color: #b40505;
+}
+
+/* EMPLOYEE PROFILE */
+
+.employee-profile {
+    /* margin-top: 10rem; */
+    margin: 10rem 20rem;
+}
+
+.employee-profile-name {
+    display: inline-block;
+    position: relative;
+    font-size: 3rem;
+    letter-spacing: 1.5px;
+}
+
+.edit-profile {
+    margin-left: 2rem;
+    position: absolute;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+
+}
+
+.edit-profile-icon {
+    color: #c0c0c0;
+    font-size: 2rem;
+    padding: 2px;
+}
+
+.custom-employee-role {
+    font-size: 1.6rem;
+
+}
+
+.employee-profile-img { 
+    width: 100%;
+}
+
+.employee-cv {
+    display: inline-block;
+    font-size: 1.6rem;
+    margin-top: 5rem;
+    padding: 1rem 2rem;
+    background-color: #b51b00;
+    color: #fff;
+}
+
+.employee-cv:hover {
+    color: #fff;
+    background-color: #b51b00e5;
 }

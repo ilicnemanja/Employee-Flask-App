@@ -1,9 +1,47 @@
-{% extends 'base.html' %} {% block title %}Dashboard{% endblock title %} {%
-block content %} {% if employees %} {% for employee in employees %}
-<h2>
-  {{employee.first_name}} {{employee.last_name}} started working
-  {{employee.date_started.strftime('%d.%m.%Y.')}}
-</h2>
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %} 
+{% include 'navigation.html' %}
+{% block content %}
+{% if employees %} 
+{% for employee in employees %}
+<div class="employee-div">
+  <div class="employee-img-div">
+    {% if employee.photo == 'No image' %}
+    <img
+      class="employee-img"
+      src="{{url_for('static', filename='photo/nophoto.jpg')}}"
+      alt=""
+    />
+    {% endif %}
+  </div>
+
+  <div class="employee-content">
+    <a href="{{url_for('employee_services.employee_profile', id=employee.id)}}" class="employee-content-h2">
+      {{employee.first_name}} {{employee.last_name}}
+    </a>
+    <p class="employee-role">{{employee.role}}</p>
+    <div class="social-media">
+      <a class="logo-a linked-in" target="_blank" href="{{employee.linked_in}}">
+        <ion-icon class="logo linked-in-logo" name="logo-linkedin"></ion-icon>
+      </a>
+      <a class="logo-a email" target="_blank" href="mailto:{{employee.email}}">
+        <ion-icon class="logo email-logo" name="mail"></ion-icon>
+      </a>
+    </div>
+  </div>
+
+  <div class="button-delete-div">
+    <a
+      href="{{url_for('employee_services.delete', id=employee.id)}}"
+      class="btn btn-delete"
+      >X</a
+    >
+  </div>
+</div>
+
+<!-- {{employee.first_name}} {{employee.last_name}} started working
+  {{employee.date_started.strftime('%d.%m.%Y.')}} -->
+
 {% endfor %} {% else %}
 <h2>No employees added</h2>
 {% endif %} {% endblock content %}

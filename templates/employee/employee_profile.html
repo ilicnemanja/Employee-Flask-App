@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{employee.first_name}} {{employee.last_name}} Profile{% endblock title %}
+
+{% include 'navigation.html' %}
+
+
+{% block content %}
+<div class="grid grid--2-cols employee-profile">
+    <div>
+        <h1 class="employee-profile-name">{{employee.first_name}} {{employee.last_name}}</h1>
+        <a title="Edit Profile" class="edit-profile" href="#"><ion-icon class="edit-profile-icon" name="pencil-outline"></ion-icon></a>
+        <p class="employee-role custom-employee-role">{{employee.role}}</p>
+        
+        <div class="social-media">
+            <a class="logo-a linked-in" target="_blank" href="{{employee.linked_in}}">
+              <ion-icon class="logo linked-in-logo" name="logo-linkedin"></ion-icon>
+            </a>
+            <a class="logo-a email" target="_blank" href="mailto:{{employee.email}}">
+              <ion-icon class="logo email-logo" name="mail"></ion-icon>
+            </a>
+        </div>
+
+        <a class="employee-cv" href="#">Open CV</a>
+    </div>
+    <div>
+        <div class="employee-profile-img">
+            {% if employee.photo == 'No image' %}
+            <img class="employee-img" src="{{url_for('static', filename='photo/nophoto.jpg')}}" alt=""/>
+            {% endif %}
+        </div>
+    </div>
+</div>
+    {% endblock content %}

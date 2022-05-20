@@ -17,6 +17,34 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #555;
+}
+/* NAVIGATION */
+.nav {
+    background-color: #2bc987;
+    margin-bottom: 5rem;
+}
+
+.nav-item {
+    padding: 2rem;
+}
+
+.nav-link, .nav-link:link, .nav-link:visited {
+    font-weight: 300;
+    color: #555;
+    font-size: 2rem;
+}
+
+.nav-link:hover, .nav-link:active {
+    color:cornsilk;
+}
+
 .container {
     /* 1140px */
     max-width: 120rem;
@@ -28,6 +56,16 @@ body {
     border: 1px solid #333;
     border-radius: 0.8rem;
     padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    column-gap: 5rem;
+    row-gap: 9.6rem;
+}
+
+.grid--2-cols {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .form-div {
@@ -46,17 +84,17 @@ body {
     margin-bottom: 2.4rem;
 }
 
-.form-control {
+.custom-form-control {
     display: flex;
     flex-direction: column;
     margin: 2rem 0;
 }
 
 .btn {
+    cursor: pointer;
     font-size: 1.6rem;
     font-family: inherit;
     padding: 0.8rem 2rem;
-    border: 2px solid #2bc987;
     border-radius: 3px;
 }
 

@@ -45,3 +45,10 @@ def login():
             msg = 'Check your details, and try to login again!'
             return render_template('login.html', msg=msg)
 
+
+@user_services.route('/logout', methods=['GET'])
+def logout():
+    if 'username' in session:
+        session.pop('Authorization', None)
+        session.pop('username', None)
+    return redirect(url_for('user_services.login'))
