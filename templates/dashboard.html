@@ -1,22 +1,38 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard{% endblock title %} 
+{% block title %}Dashboard{% endblock title %}
 {% include 'navigation.html' %}
 {% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+  {% for message in messages %}
+      <li class="success-msg">{{ message }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+{% endwith %}
+
 {% if employees %} 
 {% for employee in employees %}
 <div class="employee-div">
   <div class="employee-img-div">
-    {% if employee.photo == 'No image' %}
+    {% if employee.photo == None or employee.photo == '' %}
     <img
       class="employee-img"
       src="{{url_for('static', filename='photo/nophoto.jpg')}}"
-      alt=""
+      alt="No photo"
     />
+    {% else %}
+    <img class="employee-img" src="{{url_for('static', filename=employee.photo)}}" alt="employee image">
     {% endif %}
   </div>
 
   <div class="employee-content">
-    <a href="{{url_for('employee_services.employee_profile', id=employee.id)}}" class="employee-content-h2">
+    <a
+      href="{{url_for('employee_services.employee_profile', id=employee.id)}}"
+      class="employee-content-h2"
+    >
       {{employee.first_name}} {{employee.last_name}}
     </a>
     <p class="employee-role">{{employee.role}}</p>
@@ -38,9 +54,6 @@
     >
   </div>
 </div>
-
-<!-- {{employee.first_name}} {{employee.last_name}} started working
-  {{employee.date_started.strftime('%d.%m.%Y.')}} -->
 
 {% endfor %} {% else %}
 <h2>No employees added</h2>

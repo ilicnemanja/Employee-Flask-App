@@ -45,6 +45,11 @@ a:hover {
     color:cornsilk;
 }
 
+.image {
+    width: 250px;
+    height: 250px;
+}
+
 .container {
     /* 1140px */
     max-width: 120rem;
@@ -68,6 +73,24 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.primary-heading {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.sub-heading {
+    font-size: 1.8rem;
+    line-height: 1.1;
+}
+
+.margin-top {
+    margin-top: 5rem !important;
+}
+
+.margin-botton {
+    margin-bottom: 2rem !important;
+}
+
 .form-div {
     display: flex;
     justify-content: center;
@@ -76,7 +99,7 @@ a:hover {
 }
 
 .form {
-    width: 50%;
+    width: 100%;
 }
 
 .form-heading {
@@ -88,6 +111,23 @@ a:hover {
     display: flex;
     flex-direction: column;
     margin: 2rem 0;
+}
+
+.form-login {
+    margin: 5rem;
+}
+
+.form-control-all label {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.form-control-all input {
+    font-size: 1.8rem;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 0.6rem;
 }
 
 .btn {
@@ -102,4 +142,10 @@ a:hover {
     font-size: 1.8rem;
     font-weight: 600;
     color: #e01a1a;
+}
+
+.success-msg {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1ae04b;
 }

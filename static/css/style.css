@@ -13,21 +13,8 @@
     margin-top: 2rem;
 }
 
-.form-login {
-    margin: 5rem;
-}
-
-.form-control-login label {
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
-}
-
-.form-control-login input {
-    font-size: 1.8rem;
-    font-family: inherit;
-    border: none;
-    border-bottom: 1px solid #555;
-    padding: 0.6rem;
+.login {
+    width: 50%;
 }
 
 .btn-login {
@@ -135,7 +122,6 @@
 /* EMPLOYEE PROFILE */
 
 .employee-profile {
-    /* margin-top: 10rem; */
     margin: 10rem 20rem;
 }
 
@@ -155,18 +141,25 @@
 }
 
 .edit-profile-icon {
+    cursor: pointer;
     color: #c0c0c0;
     font-size: 2rem;
     padding: 2px;
 }
 
 .custom-employee-role {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 
 }
 
 .employee-profile-img { 
     width: 100%;
+}
+
+.started-working {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #b4b4b4;
 }
 
 .employee-cv {
@@ -181,4 +174,79 @@
 .employee-cv:hover {
     color: #fff;
     background-color: #b51b00e5;
+}
+
+/* EMPLOYEE PROFILE MODAL */
+.close-modal {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+  
+
+.hidden {
+    display: none;
+}
+  
+.custom-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-height: 70%;
+
+    background-color: white;
+    padding: 5rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    overflow-y: scroll;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 5;
+}
+
+
+.photo-holder-x {
+    display: inline-block;
+    pointer-events: none;
+}
+
+.photo-x {
+    position: relative;
+}
+
+.photo-x::after {
+    content: 'X';
+    pointer-events: all;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: -10px;
+    color: aliceblue;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.none {
+    display: none;
 }

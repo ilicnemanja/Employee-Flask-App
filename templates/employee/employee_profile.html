@@ -9,8 +9,9 @@
 <div class="grid grid--2-cols employee-profile">
     <div>
         <h1 class="employee-profile-name">{{employee.first_name}} {{employee.last_name}}</h1>
-        <a title="Edit Profile" class="edit-profile" href="#"><ion-icon class="edit-profile-icon" name="pencil-outline"></ion-icon></a>
+        <a title="Edit Profile" class="edit-profile"><ion-icon class="edit-profile-icon" name="pencil-outline"></ion-icon></a>
         <p class="employee-role custom-employee-role">{{employee.role}}</p>
+        <p class="employee-role custom-employee-role">{{employee.salary}} €</p>
         
         <div class="social-media">
             <a class="logo-a linked-in" target="_blank" href="{{employee.linked_in}}">
@@ -21,14 +22,75 @@
             </a>
         </div>
 
+        <p class="started-working">Started: {{employee.date_started.strftime('%d.%m.%Y.')}}</p>
+
         <a class="employee-cv" href="#">Open CV</a>
     </div>
     <div>
         <div class="employee-profile-img">
-            {% if employee.photo == 'No image' %}
-            <img class="employee-img" src="{{url_for('static', filename='photo/nophoto.jpg')}}" alt=""/>
+            {% if employee.photo == None or employee.photo == '' %}
+            <img
+                class="employee-img"
+                src="{{url_for('static', filename='photo/nophoto.jpg')}}"
+                alt="No photo"
+            />
+            {% else %}
+            <img class="employee-img" src="{{url_for('static', filename=employee.photo)}}" alt="employee image">
             {% endif %}
         </div>
     </div>
 </div>
-    {% endblock content %}
+
+<div class="custom-modal hidden">
+    <button class="close-modal">&times;</button>
+    <h1>Update Employee</h1>
+    <form class="form" action="#" method="post" enctype="multipart/form-data">
+        <div class="custom-form-control form-control-all">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name" value="{{employee.first_name}}" />
+        </div>
+
+        <div class="custom-form-control form-control-all">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name" value="{{employee.last_name}}"/>
+        </div>
+
+        <div class="custom-form-control form-control-all">
+            <label for="role">Role</label>
+            <input type="text" name="role" id="role" value="{{employee.role}}"/>
+        </div>
+
+        <div class="custom-form-control form-control-all">
+            <label for="salary">Salary</label>
+            <input type="text" name="salary" id="salary" value="{{employee.salary}}"/>
+        </div>
+
+        <div class="custom-form-control form-control-all">
+            <label for="email">Email</label>
+            <input type="email" pattern=".+@.+\..+" name="email" id="email" value="{{employee.email}}"/>
+        </div>
+
+        <div class="custom-form-control form-control-all">
+            <label for="linked_in">LinkedIn</label>
+            <input type="text" name="linked_in" id="linked_in" value="{{employee.linked_in}}"/>
+        </div>
+
+        <div class="custom-form-control form-control-all margin-botton">
+            <label for="photoUrl">Photo: </label>
+            <input type="file" accept="image/*" name="photoUrl" id="photoUrl"  value="{{employee.photo}}">
+        </div>
+
+        <input type="number"  name="deletePhoto" id="deletePhoto" class="form-control none" value="0">
+
+        <div class="photo-holder photo-holder-x">
+            <img class="image {% if employee.photo == None or employee.photo == '' %}none{% endif %}" width="250px" height="250px" id="image" {% if employee.photo != None or employee.photo == '' %}src="{{url_for('static', filename=employee.photo)}}" {% endif %}" alt="Employee Photo">
+        </div>
+
+        <br><br><br>
+        <button class="btn btn-login" type="submit">Update</button>
+    </form>
+</div>
+<div class="overlay hidden"></div>
+
+<script src="{{url_for("static", filename="js/employee_profile.js")}}"></script>
+{% endblock content %}

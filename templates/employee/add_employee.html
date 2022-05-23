@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Employee{% endblock title %}
+
+{% include 'navigation.html'%}
+
+{% block content %}
+<h1 class="primary-heading margin-top">Add New Employee</h1><br>
+<p class="sub-heading">Use the form below to successfully create new employee:</p>
+<p class="error-msg error-msg-login">{{ msg }}</p>
+<form class="form margin-top" action="#" method="post"  enctype="multipart/form-data">
+    <div class="custom-form-control form-control-all">
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" id="first_name" placeholder="John" required {% if employee %} value="{{employee.first_name}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all">
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" id="last_name" placeholder="Doe" required {% if employee %} value="{{employee.last_name}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all">
+        <label for="role">Role</label>
+        <input type="text" name="role" id="role" placeholder="Position" required {% if employee %} value="{{employee.role}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all">
+        <label for="salary">Salary</label>
+        <input type="number" step="0.01" name="salary" id="salary" placeholder="1000.00 €" required {% if employee %} value="{{employee.salary}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all">
+        <label for="email">Email</label>
+        <input type="email" pattern=".+@.+\..+" name="email" id="email" placeholder="johndoe@example.com" required {% if employee %} value="{{employee.email}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all">
+        <label for="linked_in">LinkedIn</label>
+        <input type="text" name="linked_in" id="linked_in" placeholder="https://www.linkedin.com/in/johndoe/" required {% if employee %} value="{{employee.linked_in}}" {% endif %}/>
+    </div>
+
+    <div class="custom-form-control form-control-all margin-botton">
+        <label for="photoUrl">Photo: </label>
+        <input type="file" accept="image/*" name="photoUrl" id="photoUrl" onchange="PreviewImage();" {% if employee %} value="{{employee.photo}}" {% endif %}>
+    </div>
+
+    <div class="photo-holder photo-holder-x">
+        <img class='image none' id="uploadPreview">
+    </div>
+
+    <br><br><br>
+    <button class="btn btn-login margin-botton" type="submit">Update</button>
+</form>
+
+<script src="{{url_for("static", filename="js/add_employee.js")}}"></script>
+{% endblock content %}
